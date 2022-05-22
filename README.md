@@ -1,1 +1,26 @@
-# internet-banking
+# Internet Banking
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run start
+```
+
+### Backend JSON-SERVER run:
+```
+npm run api
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
