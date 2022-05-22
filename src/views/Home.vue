@@ -2,7 +2,7 @@
   <div class="home">
     <div class="header">
       <h1 class="hello">Olá, Rodrigo Ramalho! 😊</h1>
-      <label>
+      <label class="search-label">
         <input
           class="search-input"
           placeholder="Procurando algo?"
@@ -21,9 +21,6 @@
       <div class="cards-gasto">
         <CardGasto />
         <CardGasto />
-        <CardGasto />
-        <CardGasto />
-
         <CardGasto />
         <CardGasto />
       </div>
@@ -61,7 +58,7 @@ export default {
   font-size: 24px
   font-weight: 600
 
-label
+.search-label
   position: relative
 
 label
@@ -74,7 +71,7 @@ label
     width: 20px
     background: url("../assets/images/search-icon.svg") center no-repeat
 
-input
+.search-input
   text-indent: 20px
   height: 32px
   width: 280px

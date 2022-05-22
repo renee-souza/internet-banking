@@ -139,11 +139,11 @@ export default {
 
 .item-menu-enabled
   &:hover
-    background-color: var(--btn-menu-hover)
+    background-color: var(--bg-cards)
     transition: 0.3s
 
 .item-menu-selected
-  background-color: var(--btn-menu-hover)
+  background-color: var(--bg-cards)
   transition: 0.3s
 
 a

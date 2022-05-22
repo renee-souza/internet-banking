@@ -36,7 +36,6 @@ export default {
   --border-radius: 4px;
 
   --btn-transferir: #00c65e;
-  --btn-menu-hover: #252525;
   --box-shadow: 0px 4px 12px rgba(30, 32, 38, 0.04);
 }
 
@@ -56,25 +55,6 @@ body {
   font-weight: 600;
   max-width: var(--min-width);
   min-height: var(--min-height);
-}
-
-body::-webkit-scrollbar {
-  width: 16px;
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--white-hard);
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
-  border: 5px solid var(--white-hard);
-  border-radius: 20px;
-}
-
-body {
-  // line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
 }
 
 .take-border {
