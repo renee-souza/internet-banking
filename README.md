@@ -1,6 +1,6 @@
 # Internet Banking
 
-## Project setup
+### Project setup
 ```
 npm install
 ```
