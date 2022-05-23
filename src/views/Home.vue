@@ -56,7 +56,7 @@ export default {
 
 .header
   height: 80px
-  margin: 0 32px 0
+  margin: 16px 32px 0 32px
   display: flex
   flex-direction: row
   justify-content: space-between
@@ -66,6 +66,9 @@ export default {
 .hello
   font-size: 24px
   font-weight: 600
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
 
 .search-label
   position: relative
@@ -113,6 +116,9 @@ label
 .title-gasto
   margin: 0 32px
   margin-bottom: 20px
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
 
 .cards-gasto
   padding-left: 32px

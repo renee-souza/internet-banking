@@ -297,6 +297,7 @@ img
     color: var(--font-secondary-color)
 
 .formas-transferir
+  padding: 8px 8px 8px 0
   margin: 32px
   height: 52px
   display: flex
