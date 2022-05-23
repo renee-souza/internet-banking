@@ -57,12 +57,7 @@ body {
   min-height: var(--min-height);
 }
 
-.take-border {
-  border: 1px solid blue;
-}
-
 .content-index {
   display: flex;
-  flex-direction: row;
 }
 </style>

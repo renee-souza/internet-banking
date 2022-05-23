@@ -20,4 +20,5 @@ export default {
   color: var(--font-primary-color)
   padding: 32px
   width: 920px
+  overflow-x: hidden
 </style>

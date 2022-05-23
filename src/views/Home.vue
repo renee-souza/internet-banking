@@ -23,6 +23,8 @@
         <CardGasto />
         <CardGasto />
         <CardGasto />
+        <CardGasto />
+        <CardGasto />
       </div>
     </div>
   </div>
@@ -45,10 +47,13 @@ export default {
 .home
   background-color: var(--bg-content)
   color: var(--font-primary-color)
-  padding: 32px
   width: 920px
+  display: flex
+  flex-direction: column
+  overflow: hidden
 
 .header
+  margin: 32px 32px 0
   display: flex
   flex-direction: row
   justify-content: space-between
@@ -93,21 +98,21 @@ label
     color: var(--font-secondary-color)
 
 .cards
-  width: 920px
   overflow: auto
 
 .cards-saldo
+  padding-left: 32px
   display: flex
   justify-content: flex-start
+  overflow: hidden
 
 .title-gasto
+  margin: 0 32px
   margin-bottom: 20px
 
 .cards-gasto
-  padding-left: 131px
+  padding-left: 32px
   display: flex
-  align-items: center
-  justify-content: center
-  flex-wrap: nowrap
+  justify-content: flex-start
   overflow: hidden
 </style>
