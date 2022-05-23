@@ -77,10 +77,11 @@ export default {
   color: var(--font-primary-color)
   width: 304px
   text-align: center
+  min-height: var(--height)
+  max-height: var(--height)
 
 .header
   padding: 24px 32px 24px
-  // border: 1px solid white
 
 .avatar-conta > img
   margin-botton: 24px

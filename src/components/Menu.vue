@@ -112,14 +112,15 @@ export default {
   background-color: var(--bg-primary-components)
   width: 56px
   text-align: center
-  min-height: var(--min-height)
   padding: 8px
+  min-height: var(--height)
+  max-height: var(--height)
 
 .menus-nav-user
   display: flex
   flex-direction: column
   justify-content: space-between
-  min-height: var(--min-height)
+  height: 100%
 
 .menu-nav
   display: flex

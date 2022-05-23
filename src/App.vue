@@ -20,19 +20,18 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --bg-content: #202020;
-  --bg-primary-components: #151515;
+  --bg-content: #151515;
+  --bg-primary-components: #0d0c0c;
   --bg-cards: #252525;
 
   --font-primary-color: #ffffff;
   --font-secondary-color: #abafba;
-  --font-limit-green: #00c65c;
   --font-limit-red: #ff404c;
   --font-limit-blue: #02abf9;
   --font-limit-green: #00c65e;
 
-  --min-width: 1280px;
-  --min-height: 720px;
+  --width: 1280px;
+  --height: 720px;
   --border-radius: 4px;
 
   --btn-transferir: #00c65e;
@@ -53,8 +52,9 @@ html,
 body {
   font-family: Poppins;
   font-weight: 600;
-  max-width: var(--min-width);
-  min-height: var(--min-height);
+  max-width: var(--width);
+  min-height: var(--height);
+  max-height: var(--height);
 }
 
 .content-index {

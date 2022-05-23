@@ -51,12 +51,16 @@ export default {
   display: flex
   flex-direction: column
   overflow: hidden
+  min-height: var(--height)
+  max-height: var(--height)
 
 .header
-  margin: 32px 32px 0
+  height: 80px
+  margin: 0 32px 0
   display: flex
   flex-direction: row
   justify-content: space-between
+  align-items: center
   flex-wrap: wrap
 
 .hello

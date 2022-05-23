@@ -32,7 +32,6 @@ export default {
 .paginaNaoEncontrada
   margin: auto
   margin-top: 5rem
-  min-height: 50rem
 
 .erro
   font-family: "Roboto", sans-serif
