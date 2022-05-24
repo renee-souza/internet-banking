@@ -64,28 +64,28 @@
           <div class="dropdown-content" :class="isOpen">
             <span class="dropdown-content-title">Escolha uma ordenação</span>
 
-            <div class="option-radio">
+            <div class="option-radio" @click="closeOptionsOrdenation()">
               <input name="ordenacao" type="radio" id="ocorrencia_desc" />
               <label class="label-check" for="ocorrencia_desc">
                 Ordenar por ocorrência (decrescente)
               </label>
             </div>
 
-            <div class="option-radio">
+            <div class="option-radio" @click="closeOptionsOrdenation()">
               <input name="ordenacao" type="radio" id="ocorrencia_cres" />
               <label class="label-check" for="ocorrencia_cres">
                 Ordenar por ocorrência (crescente)
               </label>
             </div>
 
-            <div class="option-radio">
+            <div class="option-radio" @click="closeOptionsOrdenation()">
               <input name="ordenacao" type="radio" id="valor_desc" />
               <label class="label-check" for="valor_desc">
                 Ordenar por valor (decrescente)
               </label>
             </div>
 
-            <div class="option-radio">
+            <div class="option-radio" @click="closeOptionsOrdenation()">
               <input name="ordenacao" type="radio" id="valor_cres" />
               <label class="label-check" for="valor_cres">
                 Ordenar por valor (crescente)
@@ -218,14 +218,15 @@ export default {
   components: {},
   data() {
     return {
-      changeStateMenu: false,
       isOpen: "",
     };
   },
   methods: {
     openMenu() {
-      this.changeStateMenu = !this.changeStateMenu;
-      this.isOpen = this.changeStateMenu === true ? "is-open" : "";
+      this.isOpen = this.isOpen === "" ? "is-open" : "";
+    },
+    closeOptionsOrdenation() {
+      setTimeout(() => (this.isOpen = ""), 300);
     },
   },
 };
