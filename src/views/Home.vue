@@ -12,7 +12,7 @@
     </div>
 
     <div class="cards">
-      <div class="cards-saldo">
+      <div id="cards-saldo" class="cards-saldo">
         <CardSaldo
           :label="valoresPrincipais[0]?.saldo.label"
           :valor="valoresPrincipais[0]?.saldo.value"
@@ -24,7 +24,7 @@
       </div>
       <h3 class="title-gasto">Gastos por categoria</h3>
 
-      <div class="cards-gasto">
+      <div id="cards-gasto" class="cards-gasto">
         <div v-for="(categoria, index) in categorias" :key="index">
           <CardGasto
             :categoria="categoria.categoria"
@@ -60,6 +60,19 @@ export default {
     this.getDadosUsuario();
     this.getValoresPrincipais();
     this.getCategorias();
+
+    const scrollContainerGasto = document.querySelector(".cards-gasto");
+    const scrollContainerSaldo = document.querySelector(".cards-saldo");
+
+    scrollContainerGasto.addEventListener("wheel", (evt) => {
+      evt.preventDefault();
+      scrollContainerGasto.scrollLeft += evt.deltaY;
+    });
+
+    scrollContainerSaldo.addEventListener("wheel", (evt) => {
+      evt.preventDefault();
+      scrollContainerSaldo.scrollLeft += evt.deltaY;
+    });
   },
   methods: {
     getDadosUsuario() {
