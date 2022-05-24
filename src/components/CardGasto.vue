@@ -25,11 +25,11 @@ export default {
 .card-gasto
   background-color: var(--bg-cards)
   color: var(--font-primary-color)
-  min-width: 225px
   min-height: 179px
-  padding: 32px 0
-  margin-right: 32px
+  min-width: 225px
   margin-bottom: 32px // @to-do: remover após os testes
+  margin-right: 32px
+  padding: 32px 0
 
 .title,
 .valor,
@@ -50,8 +50,8 @@ img
 
 .limite
   font-size: 12px
-  margin-bottom: 32px
   font-weight: 500
+  margin-bottom: 32px
 
 .limite-valor
   color: var(--font-limit-green)

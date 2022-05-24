@@ -47,55 +47,55 @@ export default {
 .home
   background-color: var(--bg-content)
   color: var(--font-primary-color)
-  width: 920px
   display: flex
   flex-direction: column
-  overflow: hidden
-  min-height: var(--height)
   max-height: var(--height)
+  min-height: var(--height)
+  overflow: hidden
+  width: 920px
 
 .header
-  height: 80px
-  margin: 16px 32px 0 32px
+  align-items: center
   display: flex
   flex-direction: row
-  justify-content: space-between
-  align-items: center
   flex-wrap: wrap
+  height: 80px
+  justify-content: space-between
+  margin: 16px 32px 0 32px
 
 .hello
   font-size: 24px
   font-weight: 600
+  overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
-  overflow: hidden
 
 .search-label
   position: relative
 
 label
   &::before
-    content: ""
-    position: absolute
-    left: 4px
-    top: -4px
-    bottom: 0
-    width: 20px
     background: url("../assets/images/search-icon.svg") center no-repeat
+    bottom: 0
+    content: ""
+    left: 4px
+    position: absolute
+    top: -4px
+    width: 20px
 
 .search-input
-  text-indent: 20px
-  height: 32px
-  width: 280px
-  background-color: var(--bg-cards)
-  display: flex
-  flex-direction: row
   align-items: center
-  padding: 6px 12px 6px 8px
-  gap: 8px
+  background-color: var(--bg-cards)
   border: 1px solid #404040
   border-radius: 4px
   color: var(--white-hard)
+  display: flex
+  flex-direction: row
+  gap: 8px
+  height: 32px
+  padding: 6px 12px 6px 8px
+  text-indent: 20px
+  width: 280px
   &::placeholder // Chrome, Firefox, Opera, Safari 10.1+
     color: var(--font-secondary-color)
     opacity: 1 // Firefox
@@ -108,21 +108,21 @@ label
   overflow: auto
 
 .cards-saldo
-  padding-left: 32px
   display: flex
   justify-content: flex-start
   overflow: hidden
+  padding-left: 32px
 
 .title-gasto
   margin: 0 32px
   margin-bottom: 20px
+  overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
-  overflow: hidden
 
 .cards-gasto
-  padding-left: 32px
   display: flex
   justify-content: flex-start
   overflow: hidden
+  padding-left: 32px
 </style>

@@ -110,33 +110,33 @@ export default {
 <style lang="sass" scoped>
 .menu
   background-color: var(--bg-primary-components)
-  width: 56px
-  text-align: center
-  padding: 8px
-  min-height: var(--height)
   max-height: var(--height)
+  min-height: var(--height)
+  padding: 8px
+  text-align: center
+  width: 56px
 
 .menus-nav-user
   display: flex
   flex-direction: column
-  justify-content: space-between
   height: 100%
+  justify-content: space-between
 
 .menu-nav
+  align-items: center
   display: flex
   flex-direction: column
-  align-items: center
   gap: 8px
 
 .item-menu
+  align-items: center
+  border-radius: var(--border-radius)
+  color: var(--font-primary-color)
   display: flex
   justify-content: center
-  align-items: center
-  width: 45px
   height: 45px
   line-height: 0
-  color: var(--font-primary-color)
-  border-radius: var(--border-radius)
+  width: 45px
 
 .item-menu-enabled
   &:hover
@@ -148,7 +148,7 @@ export default {
   transition: 0.3s
 
 a
+  height: 45px
   padding: 8px
   width: 45px
-  height: 45px
 </style>

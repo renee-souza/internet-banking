@@ -30,9 +30,9 @@ export default {
   font-size: 18px
 
 .valor
-  font-size: 32px
-  width: 304px
-  height: 95px
-  display: flex
   align-items: center
+  display: flex
+  font-size: 32px
+  height: 95px
+  width: 304px
 </style>

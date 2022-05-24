@@ -52,9 +52,9 @@ html,
 body {
   font-family: Poppins;
   font-weight: 600;
-  max-width: var(--width);
   min-height: var(--height);
   max-height: var(--height);
+  max-width: var(--width);
 }
 
 .content-index {

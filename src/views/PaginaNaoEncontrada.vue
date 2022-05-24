@@ -1,19 +1,17 @@
 <template>
-  <div class="paginaNaoEncontrada">
-    <h1 class="m-4">Página não encontrada <i class="fas fa-frown"></i></h1>
+  <div class="pagina-nao-encontrada">
+    <h1>Página não encontrada</h1>
 
     <div>
-      <p class="ms-4">A página solicitada não pôde ser encontrada.</p>
-      <p class="ms-4">
+      <p>A página solicitada não pôde ser encontrada.</p>
+      <p>
         Verifique o endereço digitado ou se a página ainda se encontra
         disponível.
       </p>
     </div>
 
-    <div class="mt-5 lines-divide"></div>
-
     <div class="erro">
-      <p class="ms-4">Erro: 404 not found.</p>
+      <p>Erro: 404 not found.</p>
     </div>
   </div>
 </template>
@@ -29,7 +27,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.paginaNaoEncontrada
+.pagina-nao-encontrada
   margin: auto
   margin-top: 5rem
 
