@@ -20,41 +20,22 @@
       <h3 class="ultimas-transacoes-title">Últimas transações</h3>
       <div class="divisao"></div>
 
-      <div class="ultimas-transacoes-list">
-        <div class="transacao">
-          <img src="@/assets/images/transacoes-icons/transacoes-icons-3.svg" />
-          <div class="transacao-descricao">
-            <div class="nome">Amazon Cloud Services</div>
-            <div class="acao">Transferencia recebida</div>
+      <div class="ultimas-transacoes-for">
+        <div
+          class="ultimas-transacoes-list"
+          v-for="(transacao, index) in transacoes"
+          :key="index"
+        >
+          <div class="transacao">
+            <img
+              src="@/assets/images/transacoes-icons/transacoes-icons-1.svg"
+            />
+            <div class="transacao-descricao">
+              <div class="nome">{{ transacao.proponente }}</div>
+              <div class="acao">Transferência {{ transacao.tipo }}</div>
+            </div>
+            <span class="valor">R$ {{ transacao.valor }}</span>
           </div>
-          <span class="valor">R$ 10.000,00</span>
-        </div>
-
-        <div class="transacao">
-          <img src="@/assets/images/transacoes-icons/transacoes-icons-5.svg" />
-          <div class="transacao-descricao">
-            <div class="nome">Amazon Cloud Services</div>
-            <div class="acao">Transferencia enviada</div>
-          </div>
-          <span class="valor">R$ 10.000,00</span>
-        </div>
-
-        <div class="transacao">
-          <img src="@/assets/images/transacoes-icons/transacoes-icons-3.svg" />
-          <div class="transacao-descricao">
-            <div class="nome">Amazon Cloud Services</div>
-            <div class="acao">Transferencia recebida</div>
-          </div>
-          <span class="valor">R$ 10.000,00</span>
-        </div>
-
-        <div class="transacao">
-          <img src="@/assets/images/transacoes-icons/transacoes-icons-3.svg" />
-          <div class="transacao-descricao">
-            <div class="nome">Amazon Cloud Services</div>
-            <div class="acao">Transferencia recebida</div>
-          </div>
-          <span class="valor">R$ 10.000,00</span>
         </div>
       </div>
     </div>
@@ -62,11 +43,27 @@
 </template>
 
 <script>
+import axios from "axios";
+import endpoints from "../enums/endpoints.enum";
+
 export default {
   name: "TelaLateralEsquerda",
   components: {},
   data() {
-    return {};
+    return {
+      transacoes: [],
+    };
+  },
+  mounted() {
+    this.getTransacoes();
+  },
+  methods: {
+    getTransacoes() {
+      axios.get(endpoints.TRANSACOES).then((response) => {
+        this.transacoes = response.data;
+        console.log(this.transacoes);
+      });
+    },
   },
 };
 </script>
@@ -115,13 +112,21 @@ export default {
   width: 292px
 
 .ultimas-transacoes-list
-  padding: 12px 16px
+  padding: 6px 16px
+
+.ultimas-transacoes-for
+  height: 418px
+  overflow-x: hidden
+  overflow-y: scroll
+  scrollbar-width: none
+
+.ultimas-transacoes-for::-webkit-scrollbar
+  display: none
 
 .transacao
   align-items: center
   display: flex
   justify-content: center
-  margin-bottom: 12px
 
 .transacao-descricao
   font-size: 11px

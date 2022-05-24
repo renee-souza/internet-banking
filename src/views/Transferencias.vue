@@ -109,104 +109,16 @@
             </tr>
           </thead>
 
-          <tbody>
+          <tbody v-for="(transacao, index) in transacoes" :key="index">
             <tr>
               <td>
                 <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
+                  src="@/assets/images/transacoes-icons/transacoes-icons-1.svg"
                 />
               </td>
-              <td>Amazon Cloud Services1</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
-            </tr>
-
-            <tr>
-              <td>
-                <img
-                  src="@/assets/images/transacoes-icons/transacoes-icons-3.svg"
-                />
-              </td>
-              <td>Amazon Cloud Services</td>
-              <td>26.07.2021 às 14:49:23</td>
-              <td>R$ 10.000,00</td>
+              <td>{{ transacao.proponente }}</td>
+              <td>{{ transacao.data }} às {{ transacao.hora }}</td>
+              <td>R$ {{ transacao.valor }}</td>
             </tr>
           </tbody>
         </table>
@@ -285,6 +197,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import endpoints from "../enums/endpoints.enum";
+
 export default {
   name: "Transferencias",
   components: {},
@@ -293,7 +208,11 @@ export default {
       isOpen: "",
       showModalPix: "",
       transferenciaOpacity: "",
+      transacoes: [],
     };
+  },
+  mounted() {
+    this.getTransacoes();
   },
   methods: {
     openMenuOrdenation() {
@@ -306,6 +225,12 @@ export default {
       this.showModalPix = this.showModalPix === "" ? "show-modal-pix" : "";
       this.transferenciaOpacity =
         this.transferenciaOpacity === "" ? "transferencias-opacity" : "";
+    },
+    getTransacoes() {
+      axios.get(endpoints.TRANSACOES).then((response) => {
+        this.transacoes = response.data;
+        console.log(this.transacoes);
+      });
     },
   },
 };
@@ -641,6 +566,9 @@ td > img
 
 th:nth-child(2), td:nth-child(2)
   text-align: left
+
+td:nth-child(3)
+  font-size: 12px
 
 td, th
   border-bottom: 1px solid var(--bg-cards)
