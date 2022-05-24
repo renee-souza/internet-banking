@@ -1,13 +1,14 @@
 <template>
   <div class="card-saldo">
-    <span class="header">Saldo Atual</span>
-    <span class="valor">R$ 1.000.000,00</span>
+    <span class="header">{{ label }}</span>
+    <span class="valor">R$ {{ valor }}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: "CardSaldo",
+  props: ["label", "valor"],
   components: {},
   data() {
     return {};

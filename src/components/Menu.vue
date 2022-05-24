@@ -87,7 +87,9 @@ export default {
     };
   },
   mounted() {
-    this.changeSelected();
+    setTimeout(() => {
+      this.changeSelected();
+    }, 100);
   },
   methods: {
     changeSelected() {

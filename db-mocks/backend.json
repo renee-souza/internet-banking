@@ -96,49 +96,57 @@
             "id": 1,
             "categoria": "Alimentação",
             "icone": " ",
+            "valor": "10.000,00",
             "limite": "1.000,00",
             "porcentagem": "10%",
-            "limite_color": "green"
+            "limite_color": "#00c65e"
         },
         {   
             "id": 2,
             "categoria": "Despesas fixas",
             "icone": " ",
+            "valor": "10.000,00",
             "limite": "1.000,00",
             "porcentagem": "10%",
-            "limite_color": "red"
+            "limite_color": "#ff404c"
         },
         {   
             "id": 3,
             "categoria": "Tecnologia",
             "icone": " ",
+            "valor": "10.000,00",
             "limite": "0,00",
             "porcentagem": "0%",
-            "limite_color": "blue"
+            "limite_color": "#02abf9"
         },
         {   
             "id": 4,
             "categoria": "Outros",
             "icone": " ",
+            "valor": "10.000,00",
             "limite": "1.000,00",
             "porcentagem": "10%",
-            "limite_color": "green"
+            "limite_color": "#00c65e"
         }
     ],
     "valores_principais": [
         {
-            "saldo_atual": "1.000.000,00"
+            "saldo": {
+                "label": "Saldo atual",
+                "value": "2.000.000,00"
+            }
         },
         {
-            "fatura_atual": "1.000.000,00"
+            "fatura": {
+                "label": "Fatura atual",
+                "value": "3.000.000,00"
+            }
         }
     ],
-    "dados_usuario": [
-        {
-            "avatar": " ",
-            "nome": "Rodrigo Ramalho",
-            "empresa": "Wayne Corporations LTDA",
-            "cnpj": "12.345.678/0001-01"
-        }
-    ]
+    "dados_usuario": {
+        "avatar": " ",
+        "nome": "Rodrigo Ramalho",
+        "empresa": "Wayne Corporations LTDA 2",
+        "cnpj": "12.345.678/0001-01"
+    }
 }

@@ -2,11 +2,14 @@
   <div class="card-gasto">
     <span class="title">
       <img src="@/assets/images/card-gasto/card-gasto-icon-1.svg" />
-      Alimentação
+      {{ categoria }}
     </span>
-    <span class="valor">R$ 10.000,00</span>
+    <span class="valor">R$ {{ valor }}</span>
     <span class="limite">
-      Limite: <span class="limite-valor">R$ 1.000,00 (10%)</span>
+      Limite:
+      <span :style="{ color: limite_color }"
+        >R$ {{ limite }} {{ porcentagem }}</span
+      >
     </span>
   </div>
 </template>
@@ -14,6 +17,7 @@
 <script>
 export default {
   name: "CardGasto",
+  props: ["categoria", "valor", "limite", "porcentagem", "limite_color"],
   components: {},
   data() {
     return {};
@@ -27,7 +31,6 @@ export default {
   color: var(--font-primary-color)
   min-height: 179px
   min-width: 225px
-  margin-bottom: 32px // @to-do: remover após os testes
   margin-right: 32px
   padding: 32px 0
 

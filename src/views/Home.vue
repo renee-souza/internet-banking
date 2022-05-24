@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="header">
-      <h1 class="hello">Olá, Rodrigo Ramalho! 😊</h1>
+      <h1 class="hello">Olá, {{ dadosUsuario.nome }}! 😊</h1>
       <label class="search-label">
         <input
           class="search-input"
@@ -13,24 +13,36 @@
 
     <div class="cards">
       <div class="cards-saldo">
-        <CardSaldo />
-        <CardSaldo />
+        <CardSaldo
+          :label="valoresPrincipais[0]?.saldo.label"
+          :valor="valoresPrincipais[0]?.saldo.value"
+        />
+        <CardSaldo
+          :label="valoresPrincipais[1]?.fatura.label"
+          :valor="valoresPrincipais[1]?.fatura.value"
+        />
       </div>
       <h3 class="title-gasto">Gastos por categoria</h3>
 
       <div class="cards-gasto">
-        <CardGasto />
-        <CardGasto />
-        <CardGasto />
-        <CardGasto />
-        <CardGasto />
-        <CardGasto />
+        <div v-for="(categoria, index) in categorias" :key="index">
+          <CardGasto
+            :categoria="categoria.categoria"
+            :valor="categoria.valor"
+            :limite="categoria.limite"
+            :porcentagem="categoria.porcentagem"
+            :limite_color="categoria.limite_color"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import endpoints from "../enums/endpoints.enum";
+
 import CardSaldo from "../components/CardSaldo.vue";
 import CardGasto from "../components/CardGasto.vue";
 
@@ -38,7 +50,33 @@ export default {
   name: "Home",
   components: { CardSaldo, CardGasto },
   data() {
-    return {};
+    return {
+      dadosUsuario: [],
+      valoresPrincipais: [],
+      categorias: [],
+    };
+  },
+  mounted() {
+    this.getDadosUsuario();
+    this.getValoresPrincipais();
+    this.getCategorias();
+  },
+  methods: {
+    getDadosUsuario() {
+      axios.get(endpoints.DADOS_USUARIO).then((response) => {
+        this.dadosUsuario = response.data;
+      });
+    },
+    getValoresPrincipais() {
+      axios.get(endpoints.VALORES_PRINCIPAIS).then((response) => {
+        this.valoresPrincipais = response.data;
+      });
+    },
+    getCategorias() {
+      axios.get(endpoints.CATEGORIAS).then((response) => {
+        this.categorias = response.data;
+      });
+    },
   },
 };
 </script>

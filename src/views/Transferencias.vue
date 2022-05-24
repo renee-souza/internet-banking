@@ -229,7 +229,6 @@ export default {
     getTransacoes() {
       axios.get(endpoints.TRANSACOES).then((response) => {
         this.transacoes = response.data;
-        console.log(this.transacoes);
       });
     },
   },

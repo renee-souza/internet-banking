@@ -5,8 +5,8 @@
         <img src="@/assets/images/avatar.svg" />
       </span>
 
-      <div class="nome-usuario">Wayne Corporations LTDA 2</div>
-      <div class="cnpj-usuario">12.345.678/0001-01</div>
+      <div class="nome-usuario">{{ dadosUsuario.empresa }}</div>
+      <div class="cnpj-usuario">{{ dadosUsuario.cnpj }}</div>
 
       <div class="tipos-transacoes">
         <img src="@/assets/images/transacoes-icons/transacoes-icons-1.svg" />
@@ -51,17 +51,23 @@ export default {
   components: {},
   data() {
     return {
+      dadosUsuario: [],
       transacoes: [],
     };
   },
   mounted() {
+    this.getDadosUsuario();
     this.getTransacoes();
   },
   methods: {
+    getDadosUsuario() {
+      axios.get(endpoints.DADOS_USUARIO).then((response) => {
+        this.dadosUsuario = response.data;
+      });
+    },
     getTransacoes() {
       axios.get(endpoints.TRANSACOES).then((response) => {
         this.transacoes = response.data;
-        console.log(this.transacoes);
       });
     },
   },
