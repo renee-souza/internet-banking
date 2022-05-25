@@ -94,6 +94,8 @@
         <input
           v-model="dadosTransferencia.valor"
           type="number"
+          min="0"
+          oninput="this.value = Math.abs(this.value)"
           class="modal-pix-form-input modal-pix-form-input-value"
           id="idValorTransferir"
           placeholder="R$ 0,00"
