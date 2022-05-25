@@ -5,7 +5,10 @@
     </span>
 
     <div class="formas-transferir-icones">
-      <button @click="openModalPix()" class="formas-transferir-forma-container">
+      <button
+        @click="controlModalPix()"
+        class="formas-transferir-forma-container"
+      >
         <span class="forma-icone">
           <img
             src="@/assets/images/formas-transferir/formas-transferir-1.svg"
@@ -54,20 +57,32 @@
           >
         </div>
 
-        <select class="modal-pix-form-input" id="idEnviarPara">
-          <option disabled selected class="modal-pix-form-input" value="">
+        <select
+          v-model="dadosTransferencia.destino"
+          class="modal-pix-form-input"
+          id="idEnviarPara"
+        >
+          <option
+            disabled
+            selected
+            class="modal-pix-form-input"
+            value="Escolha um proponente"
+          >
             Escolha um proponente
           </option>
-          <option class="modal-pix-form-input" value="">
+          <option class="modal-pix-form-input" value="Amazon Web Services">
             Amazon Web Services
           </option>
-          <option class="modal-pix-form-input" value="">
+          <option class="modal-pix-form-input" value="Aluguel de imóvel">
             Aluguel de imóvel
           </option>
-          <option class="modal-pix-form-input" value="">
+          <option class="modal-pix-form-input" value="Parcela de emprestimo">
             Parcela de emprestimo
           </option>
         </select>
+        <span class="campo-obrigatorio" :class="controlRequiredFieldDestino">
+          Campo de preenchimento obrigatório
+        </span>
       </div>
 
       <div class="modal-pix-form-field">
@@ -77,24 +92,29 @@
           >
         </div>
         <input
+          v-model="dadosTransferencia.valor"
           type="text"
-          class="modal-pix-form-input"
+          class="modal-pix-form-input modal-pix-form-input-value"
           id="idValorTransferir"
           placeholder="R$ 0,00"
+          autocomplete="off"
         />
+        <span class="campo-obrigatorio" :class="controlRequiredFieldValor">
+          Campo de preenchimento obrigatório
+        </span>
       </div>
     </form>
 
     <div class="modal-pix-footer">
       <button
-        @click="openModalPix()"
+        @click="controlModalPix()"
         type="button"
         class="modal-pix-footer-btn modal-pix-footer-btn-cancelar"
       >
         Cancelar
       </button>
       <button
-        @click="openModalPix()"
+        @click="postDadosTransferencia()"
         type="submit"
         class="modal-pix-footer-btn modal-pix-footer-btn-transferir"
       >
@@ -105,6 +125,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import endpoints from "../enums/endpoints.enum";
+
 export default {
   name: "HistoricoTransferencias",
   components: {},
@@ -112,26 +135,98 @@ export default {
     return {
       showModalPix: "",
       transferenciaOpacity: "",
+      controlRequiredFieldDestino: "",
+      controlRequiredFieldValor: "",
+
+      dadosTransferenciaPost: {},
+
+      dadosTransferencia: {
+        destino: "",
+        valor: "",
+      },
     };
   },
+  mounted() {
+    //
+  },
   methods: {
-    openModalPix() {
+    controlModalPix() {
       this.showModalPix = this.showModalPix === "" ? "show-modal-pix" : "";
       this.transferenciaOpacity =
         this.transferenciaOpacity === "" ? "transferencias-opacity" : "";
+
+      this.controlRequiredFieldDestino = "";
+      this.controlRequiredFieldValor = "";
+    },
+    noSingleNumber(number) {
+      number = number.toString().length == 1 ? `0${number}` : number;
+      return number;
+    },
+    postDadosTransferencia() {
+      this.controlRequiredFieldDestino = !this.dadosTransferencia.destino
+        ? "campo-obrigatorio-block"
+        : "";
+
+      this.controlRequiredFieldValor = !this.dadosTransferencia.valor
+        ? "campo-obrigatorio-block"
+        : "";
+
+      if (!this.dadosTransferencia.destino || !this.dadosTransferencia.valor) {
+        return;
+      }
+
+      if (this.dadosTransferencia.destino && this.dadosTransferencia.valor) {
+        this.controlModalPix();
+        this.parseDadosTransferencia();
+
+        axios
+          .post(endpoints.TRANSACOES, this.dadosTransferenciaPost)
+          .then((response) => {
+            console.log(response);
+          });
+      }
+    },
+    parseDadosTransferencia() {
+      const date = new Date();
+      const day = this.noSingleNumber(date.getDate());
+      const month = this.noSingleNumber(date.getMonth() + 1);
+      const year = date.getFullYear();
+      const hours = this.noSingleNumber(date.getHours());
+      const minutes = this.noSingleNumber(date.getMinutes());
+      const seconds = this.noSingleNumber(date.getSeconds());
+
+      const today = `${day}.${month}.${year}`;
+      const hour = `${hours}:${minutes}:${seconds}`;
+
+      this.dadosTransferenciaPost = {
+        proponente: this.dadosTransferencia.destino,
+        data: today,
+        hora: hour,
+        valor: this.dadosTransferencia.valor,
+        tipo: "enviada",
+      };
     },
   },
 };
 </script>
 
 <style lang="sass" scoped>
+.campo-obrigatorio
+  color: var(--font-limit-red)
+  display: none
+  font-size: 12px
+  font-weight: 500
+
+.campo-obrigatorio-block
+  display: block
+
 .formas-transferir
   align-items: center
   background-color: var(--bg-cards)
   display: flex
   gap: 10px
   height: 52px
-  margin: 32px
+  margin: 32px 32px 0
   padding: 8px 8px 8px 0
 
 .formas-transferir-text
@@ -176,7 +271,7 @@ export default {
   border-radius: 8px
   color: var(--font-primary-color)
   display: none
-  height: 380px
+  height: 400px
   left: 442px
   padding: 40px
   position: absolute
@@ -214,7 +309,7 @@ export default {
   margin-top: 32px
 
 .modal-pix-form-field
-  margin-bottom: 24px
+  margin-bottom: 16px
 
 .modal-pix-form-label
   color: var(--font-secondary-color)
@@ -244,7 +339,7 @@ select
   align-items: center
   display: flex
   justify-content: space-between
-  margin-top: 40px
+  margin-top: 20px
 
 .modal-pix-footer-btn
   cursor: pointer

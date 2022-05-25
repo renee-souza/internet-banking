@@ -200,7 +200,7 @@ input[type=radio]:checked + label:before
   border: 5px solid var(--btn-transferir)
 
 .historico-list
-  max-height: 442px
+  max-height: 458px
   overflow-x: hidden
   overflow-y: scroll
   scrollbar-width: none

@@ -60,7 +60,7 @@ export default {
   flex-wrap: wrap
   height: 80px
   justify-content: space-between
-  margin: 0 32px 0
+  margin: 16px 32px 0 32px
 
 .title
   align-items: center

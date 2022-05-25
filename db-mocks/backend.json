@@ -1,152 +1,222 @@
 {
-    "transacoes": [
-        {
-          "id": 1,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-1.svg",
-          "proponente": "Amazon Web Services",
-          "data": "01.01.2001",
-          "hora": "13:01:01",
-          "valor": "1.000,00",
-          "tipo": "recebida"
-        },
-        {
-          "id": 2,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-2.svg",
-          "proponente": "Aluguel de imóvel",
-          "data": "02.02.2002",
-          "hora": "14:02:02",
-          "valor": "2.000,00",
-          "tipo": "recebida"
-        },
-        {
-          "id": 3,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-3.svg",
-          "proponente": "Parcela de emprestimo",
-          "data": "03.03.2003",
-          "hora": "15:03:03",
-          "valor": "3.000,00",
-          "tipo": "enviada"
-        },
-        {
-          "id": 4,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-4.svg",
-          "proponente": "Compras mensais",
-          "data": "04.04.2004",
-          "hora": "14:04:04",
-          "valor": "4.000,00",
-          "tipo": "enviada"
-        },
-        {
-          "id": 5,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-5.svg",
-          "proponente": "Hospedagem de domínio",
-          "data": "05.05.2005",
-          "hora": "17:05:05",
-          "valor": "5.000,00",
-          "tipo": "enviada"
-        },
-        {
-          "id": 6,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-1.svg",
-          "proponente": "Amazon Web Services",
-          "data": "06.06.6006",
-          "hora": "18:06:06",
-          "valor": "6.000,00",
-          "tipo": "recebida"
-      },
-      {
-          "id": 7,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-1.svg",
-          "proponente": "Aluguel de imóvel",
-          "data": "07.07.2007",
-          "hora": "19:07:07",
-          "valor": "7.000,00",
-          "tipo": "enviada"
-      },
-      {
-          "id": 8,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-3.svg",
-          "proponente": "Parcela de emprestimo",
-          "data": "08.08.2008",
-          "hora": "20:08:08",
-          "valor": "8.000,00",
-          "tipo": "enviada"
-      },
-      {
-          "id": 9,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-4.svg",
-          "proponente": "Compras mensais",
-          "data": "09.09.2009",
-          "hora": "21:09:09",
-          "valor": "9.000,00",
-          "tipo": "enviada"
-      },
-      {
-          "id": 10,
-          "logo": "@/assets/images/transacoes-icons/transacoes-icons-5.svg",
-          "proponente": "Hospedagem de domínio",
-          "data": "10.10.2010",
-          "hora": "22:10:10",
-          "valor": "10.000,00",
-          "tipo": "enviada"
-        }
-    ],
-    "categorias": [
-        {   
-            "id": 1,
-            "categoria": "Alimentação",
-            "icone": " ",
-            "valor": "10.000,00",
-            "limite": "1.000,00",
-            "porcentagem": "10%",
-            "limite_color": "#00c65e"
-        },
-        {   
-            "id": 2,
-            "categoria": "Despesas fixas",
-            "icone": " ",
-            "valor": "10.000,00",
-            "limite": "1.000,00",
-            "porcentagem": "10%",
-            "limite_color": "#ff404c"
-        },
-        {   
-            "id": 3,
-            "categoria": "Tecnologia",
-            "icone": " ",
-            "valor": "10.000,00",
-            "limite": "0,00",
-            "porcentagem": "0%",
-            "limite_color": "#02abf9"
-        },
-        {   
-            "id": 4,
-            "categoria": "Outros",
-            "icone": " ",
-            "valor": "10.000,00",
-            "limite": "1.000,00",
-            "porcentagem": "10%",
-            "limite_color": "#00c65e"
-        }
-    ],
-    "valores_principais": [
-        {
-            "saldo": {
-                "label": "Saldo atual",
-                "value": "2.000.000,00"
-            }
-        },
-        {
-            "fatura": {
-                "label": "Fatura atual",
-                "value": "3.000.000,00"
-            }
-        }
-    ],
-    "dados_usuario": {
-        "avatar": " ",
-        "nome": "Rodrigo Ramalho",
-        "empresa": "Wayne Corporations LTDA 2",
-        "cnpj": "12.345.678/0001-01"
+  "transacoes": [
+    {
+      "id": 1,
+      "proponente": "Amazon Web Services",
+      "data": "01.01.2001",
+      "hora": "13:01:01",
+      "valor": "1.000,00",
+      "tipo": "recebida"
+    },
+    {
+      "id": 2,
+      "proponente": "Aluguel de imóvel",
+      "data": "02.02.2002",
+      "hora": "14:02:02",
+      "valor": "2.000,00",
+      "tipo": "recebida"
+    },
+    {
+      "id": 3,
+      "proponente": "Parcela de emprestimo",
+      "data": "03.03.2003",
+      "hora": "15:03:03",
+      "valor": "3.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "id": 4,
+      "proponente": "Compras mensais",
+      "data": "04.04.2004",
+      "hora": "14:04:04",
+      "valor": "4.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "id": 5,
+      "proponente": "Hospedagem de domínio",
+      "data": "05.05.2005",
+      "hora": "17:05:05",
+      "valor": "5.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "id": 6,
+      "proponente": "Amazon Web Services",
+      "data": "06.06.6006",
+      "hora": "18:06:06",
+      "valor": "6.000,00",
+      "tipo": "recebida"
+    },
+    {
+      "id": 7,
+      "proponente": "Aluguel de imóvel",
+      "data": "07.07.2007",
+      "hora": "19:07:07",
+      "valor": "7.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "id": 8,
+      "proponente": "Parcela de emprestimo",
+      "data": "08.08.2008",
+      "hora": "20:08:08",
+      "valor": "8.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "id": 9,
+      "proponente": "Compras mensais",
+      "data": "09.09.2009",
+      "hora": "21:09:09",
+      "valor": "9.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "id": 10,
+      "proponente": "Hospedagem de domínio",
+      "data": "10.10.2010",
+      "hora": "22:10:10",
+      "valor": "10.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "proponente": "Amazon Web Services",
+      "data": "24.5.2022",
+      "hora": "17:59:5",
+      "valor": "4000",
+      "tipo": "enviada",
+      "id": 11
+    },
+    {
+      "proponente": "Amazon Web Services",
+      "data": "24.05.2022",
+      "hora": "18:3:4",
+      "valor": "400",
+      "tipo": "enviada",
+      "id": 12
+    },
+    {
+      "proponente": "Amazon Web Services",
+      "data": "24.05.2022",
+      "hora": "18:7:30",
+      "valor": "4000",
+      "tipo": "enviada",
+      "id": 13
+    },
+    {
+      "proponente": "Amazon Web Services",
+      "data": "24.05.2022",
+      "hora": "18:10:35",
+      "valor": "4000",
+      "tipo": "enviada",
+      "id": 14
+    },
+    {
+      "proponente": "Aluguel de imóvel",
+      "data": "24.05.2022",
+      "hora": "18:27:50",
+      "valor": "400",
+      "tipo": "enviada",
+      "id": 15
+    },
+    {
+      "proponente": "",
+      "data": "25.05.2022",
+      "hora": "10:35:29",
+      "valor": "400",
+      "tipo": "enviada",
+      "id": 16
+    },
+    {
+      "proponente": "Amazon Web Services",
+      "data": "25.05.2022",
+      "hora": "10:36:55",
+      "valor": "400",
+      "tipo": "enviada",
+      "id": 17
+    },
+    {
+      "proponente": "Amazon Web Services",
+      "data": "25.05.2022",
+      "hora": "10:37:03",
+      "valor": "400",
+      "tipo": "enviada",
+      "id": 18
+    },
+    {
+      "proponente": "Aluguel de imóvel",
+      "data": "25.05.2022",
+      "hora": "11:20:04",
+      "valor": "22222",
+      "tipo": "enviada",
+      "id": 19
+    },
+    {
+      "proponente": "Amazon Web Services",
+      "data": "25.05.2022",
+      "hora": "11:24:27",
+      "valor": "122",
+      "tipo": "enviada",
+      "id": 20
     }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "categoria": "Alimentação",
+      "icone": " ",
+      "valor": "10.000,00",
+      "limite": "1.000,00",
+      "porcentagem": "10%",
+      "limite_color": "#00c65e"
+    },
+    {
+      "id": 2,
+      "categoria": "Despesas fixas",
+      "icone": " ",
+      "valor": "10.000,00",
+      "limite": "1.000,00",
+      "porcentagem": "10%",
+      "limite_color": "#ff404c"
+    },
+    {
+      "id": 3,
+      "categoria": "Tecnologia",
+      "icone": " ",
+      "valor": "10.000,00",
+      "limite": "0,00",
+      "porcentagem": "0%",
+      "limite_color": "#02abf9"
+    },
+    {
+      "id": 4,
+      "categoria": "Outros",
+      "icone": " ",
+      "valor": "10.000,00",
+      "limite": "1.000,00",
+      "porcentagem": "10%",
+      "limite_color": "#00c65e"
+    }
+  ],
+  "valores_principais": [
+    {
+      "saldo": {
+        "label": "Saldo atual",
+        "value": "2.000.000,00"
+      }
+    },
+    {
+      "fatura": {
+        "label": "Fatura atual",
+        "value": "3.000.000,00"
+      }
+    }
+  ],
+  "dados_usuario": {
+    "avatar": " ",
+    "nome": "Rodrigo Ramalho",
+    "empresa": "Wayne Corporations LTDA 2",
+    "cnpj": "12.345.678/0001-01"
+  }
 }
