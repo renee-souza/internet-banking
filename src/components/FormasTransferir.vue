@@ -195,6 +195,14 @@ export default {
       const minutes = this.noSingleNumber(date.getMinutes());
       const seconds = this.noSingleNumber(date.getSeconds());
 
+      this.dadosTransferencia.valor = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BLR",
+      })
+        .format(this.dadosTransferencia.valor)
+        .replace("BLR", "")
+        .replace(" ", "");
+
       const today = `${day}.${month}.${year}`;
       const hour = `${hours}:${minutes}:${seconds}`;
 
