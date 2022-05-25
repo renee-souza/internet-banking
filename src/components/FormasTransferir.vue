@@ -93,7 +93,7 @@
         </div>
         <input
           v-model="dadosTransferencia.valor"
-          type="text"
+          type="number"
           class="modal-pix-form-input modal-pix-form-input-value"
           id="idValorTransferir"
           placeholder="R$ 0,00"
@@ -342,6 +342,14 @@ select
   text-overflow: ''
   -webkit-appearance: none
   -moz-appearance: none
+
+input[type=number]
+  -moz-appearance: textfield
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
 
 .modal-pix-footer
   align-items: center
