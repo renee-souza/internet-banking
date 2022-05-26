@@ -20,7 +20,7 @@ npm run api
 npm run build
 ```
 
-### Lints and correções
+### Lints e correções
 ```
 npm run lint
 ```
