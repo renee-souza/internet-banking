@@ -7,7 +7,7 @@
         <button @click="openMenuOrdenation()" class="btn-ordenation">
           <img class="order-list" src="@/assets/images/ordem-lista.svg" />
           Ordenado por:
-          <span class="btn-ordenation-text-green">Completo</span>
+          <span class="btn-ordenation-text-green">{{ ordenadoPor }}</span>
           <img class="arrow" src="@/assets/images/arrow-down.svg" />
         </button>
 
@@ -17,7 +17,7 @@
           <div
             class="option-radio"
             @click="
-              closeOptionsOrdenation();
+              closeOptionsOrdenation('Ocorrência (decrescente)');
               sortResultsOccurrence('decrec', 'data', 'hora');
             "
           >
@@ -30,7 +30,7 @@
           <div
             class="option-radio"
             @click="
-              closeOptionsOrdenation();
+              closeOptionsOrdenation('Ocorrência (crescente)');
               sortResultsOccurrence('cresc', 'data', 'hora');
             "
           >
@@ -43,7 +43,7 @@
           <div
             class="option-radio"
             @click="
-              closeOptionsOrdenation();
+              closeOptionsOrdenation('Valor (decrescente)');
               sortResultsValue('decrec', 'valor');
             "
           >
@@ -56,7 +56,7 @@
           <div
             class="option-radio"
             @click="
-              closeOptionsOrdenation();
+              closeOptionsOrdenation('Valor (crescente)');
               sortResultsValue('cresc', 'valor');
             "
           >
@@ -113,6 +113,7 @@ export default {
       isOpen: "",
       transacoes: [],
       tipoOrdenacao: "",
+      ordenadoPor: "Ocorrência (decrescente)",
     };
   },
   mounted() {
@@ -122,7 +123,9 @@ export default {
     openMenuOrdenation() {
       this.isOpen = this.isOpen === "" ? "is-open" : "";
     },
-    closeOptionsOrdenation() {
+    closeOptionsOrdenation(setOrdenation) {
+      this.ordenadoPor = setOrdenation;
+
       setTimeout(() => (this.isOpen = ""), 300);
     },
     getTransactions() {
@@ -197,8 +200,9 @@ export default {
     outline: none
 
 .order-list
-  padding: 0
   height: 16px
+  margin-right: 4px
+  padding: 0
   width: 16px
 
 .btn-ordenation-text-green
