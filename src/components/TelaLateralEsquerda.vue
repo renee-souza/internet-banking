@@ -5,8 +5,16 @@
         <img src="@/assets/images/avatar.svg" />
       </span>
 
-      <div class="nome-usuario">{{ dadosUsuario.empresa }}</div>
-      <div class="cnpj-usuario">{{ dadosUsuario.cnpj }}</div>
+      <div v-if="dadosUsuario.empresa" class="nome-usuario">
+        {{ dadosUsuario.empresa }}
+      </div>
+      <div v-if="dadosUsuario.cnpj" class="cnpj-usuario">
+        {{ dadosUsuario.cnpj }}
+      </div>
+
+      <span class="nome-usuario" v-if="transacoes.length === 0"
+        >Aguardando dados...</span
+      >
 
       <div class="tipos-transacoes">
         <img src="@/assets/images/transacoes-icons/transacoes-icons-1.svg" />
@@ -19,6 +27,10 @@
     <div class="ultimas-transacoes">
       <h3 class="ultimas-transacoes-title">Últimas transações</h3>
       <div class="divisao"></div>
+
+      <span class="aguardando-dados" v-if="transacoes.length === 0">
+        Aguardando dados...
+      </span>
 
       <div class="ultimas-transacoes-for">
         <div
@@ -116,6 +128,10 @@ export default {
   border-top: 1px solid var(--bg-cards)
   margin: 0 auto
   width: 292px
+
+.aguardando-dados
+  display: block
+  margin-top: 24px
 
 .ultimas-transacoes-list
   padding: 6px 16px

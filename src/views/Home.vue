@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <div class="header">
-      <h1 class="hello">Olá, {{ dadosUsuario.nome }}! 😊</h1>
+      <h1 v-if="dadosUsuario.nome" class="hello">
+        Olá, {{ dadosUsuario.nome }}! 😊
+      </h1>
+      <h1 v-if="!dadosUsuario.nome" class="hello">Olá! 😊</h1>
       <label class="search-label">
         <input
           class="search-input"
@@ -25,6 +28,7 @@
       <h3 class="title-gasto">Gastos por categoria</h3>
 
       <div id="cards-gasto" class="cards-gasto">
+        <span v-if="categorias.length === 0">Aguardando dados...</span>
         <div v-for="(categoria, index) in categorias" :key="index">
           <CardGasto
             :categoria="categoria.categoria"

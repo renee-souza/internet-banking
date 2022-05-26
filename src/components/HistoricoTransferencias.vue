@@ -80,6 +80,10 @@
           </tr>
         </thead>
 
+        <span class="aguardando-dados" v-if="transacoes.length === 0">
+          Aguardando dados...
+        </span>
+
         <tbody v-for="(transacao, index) in transacoes" :key="index">
           <tr>
             <td>
@@ -264,6 +268,10 @@ table
 thead
   background-color: var(--bg-content)
   border-bottom: 3px solid var(--bg-cards)
+
+.aguardando-dados
+  display: block
+  margin-top: 24px
 
 td > img
   height: 40px

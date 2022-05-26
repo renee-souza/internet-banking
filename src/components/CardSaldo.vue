@@ -1,7 +1,8 @@
 <template>
   <div class="card-saldo">
-    <span class="header">{{ label }}</span>
-    <span class="valor">R$ {{ valor }}</span>
+    <span v-if="valor" class="header">{{ label }}</span>
+    <span v-if="valor" class="valor">R$ {{ valor }}</span>
+    <span v-if="!valor" class="valor">Aguardando dados...</span>
   </div>
 </template>
 
