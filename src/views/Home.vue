@@ -61,9 +61,9 @@ export default {
     };
   },
   mounted() {
-    this.getDadosUsuario();
-    this.getValoresPrincipais();
-    this.getCategorias();
+    this.getDataUser();
+    this.getMainValues();
+    this.getCategories();
 
     const scrollContainerGasto = document.querySelector(".cards-spent");
     const scrollContainerSaldo = document.querySelector(".balance-cards");
@@ -79,17 +79,17 @@ export default {
     });
   },
   methods: {
-    getDadosUsuario() {
+    getDataUser() {
       axios.get(endpoints.DADOS_USUARIO).then((response) => {
         this.dadosUsuario = response.data;
       });
     },
-    getValoresPrincipais() {
+    getMainValues() {
       axios.get(endpoints.VALORES_PRINCIPAIS).then((response) => {
         this.valoresPrincipais = response.data;
       });
     },
-    getCategorias() {
+    getCategories() {
       axios.get(endpoints.CATEGORIAS).then((response) => {
         this.categorias = response.data;
       });

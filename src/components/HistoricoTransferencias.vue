@@ -18,7 +18,7 @@
             class="option-radio"
             @click="
               closeOptionsOrdenation();
-              ordenarResultados('decrec', 'data', 'hora');
+              sortResultsOccurrence('decrec', 'data', 'hora');
             "
           >
             <input name="ordenacao" type="radio" id="ocorrencia_desc" />
@@ -31,7 +31,7 @@
             class="option-radio"
             @click="
               closeOptionsOrdenation();
-              ordenarResultados('cresc', 'data', 'hora');
+              sortResultsOccurrence('cresc', 'data', 'hora');
             "
           >
             <input name="ordenacao" type="radio" id="ocorrencia_cres" />
@@ -44,7 +44,7 @@
             class="option-radio"
             @click="
               closeOptionsOrdenation();
-              ordenarResultados('decrec', 'valor');
+              sortResultsValue('decrec', 'valor');
             "
           >
             <input name="ordenacao" type="radio" id="valor_desc" />
@@ -57,7 +57,7 @@
             class="option-radio"
             @click="
               closeOptionsOrdenation();
-              ordenarResultados('cresc', 'valor');
+              sortResultsValue('cresc', 'valor');
             "
           >
             <input name="ordenacao" type="radio" id="valor_cres" />
@@ -116,7 +116,7 @@ export default {
     };
   },
   mounted() {
-    this.getTransacoes();
+    this.getTransactions();
   },
   methods: {
     openMenuOrdenation() {
@@ -125,27 +125,40 @@ export default {
     closeOptionsOrdenation() {
       setTimeout(() => (this.isOpen = ""), 300);
     },
-    getTransacoes() {
+    getTransactions() {
       axios.get(endpoints.TRANSACOES).then((response) => {
         this.transacoes = response.data;
       });
     },
-    ordenarResultados(sentido, ordenacao1, ordenacao2) {
+    sortResultsOccurrence(sense, firstOrdination, secondOrdination) {
       function compare(a, b) {
         if (
-          a[(ordenacao1, ordenacao2 ? ordenacao2 : "")] <
-          b[(ordenacao1, ordenacao2 ? ordenacao2 : "")]
+          a[(firstOrdination, secondOrdination ?? "")] <
+          b[(firstOrdination, secondOrdination ?? "")]
         )
           return -1;
         if (
-          a[(ordenacao1, ordenacao2 ? ordenacao2 : "")] >
-          b[(ordenacao1, ordenacao2 ? ordenacao2 : "")]
+          a[(firstOrdination, secondOrdination ?? "")] >
+          b[(firstOrdination, secondOrdination ?? "")]
         )
           return 1;
         return 0;
       }
 
-      if (sentido === "decrec") {
+      if (sense === "decrec") {
+        return this.transacoes.sort(compare).reverse();
+      }
+
+      return this.transacoes.sort(compare);
+    },
+    sortResultsValue(sense, ordenacao) {
+      function compare(a, b) {
+        if (a[ordenacao] < b[ordenacao]) return -1;
+        if (a[ordenacao] > b[ordenacao]) return 1;
+        return 0;
+      }
+
+      if (sense === "decrec") {
         return this.transacoes.sort(compare).reverse();
       }
 

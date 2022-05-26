@@ -111,7 +111,7 @@
         Cancelar
       </button>
       <button
-        @click="postDadosTransferencia()"
+        @click="postDataTransfer()"
         type="submit"
         class="modal-pix-footer-btn modal-pix-footer-btn-transferir"
       >
@@ -159,7 +159,7 @@ export default {
       number = number.toString().length == 1 ? `0${number}` : number;
       return number;
     },
-    postDadosTransferencia() {
+    postDataTransfer() {
       this.controlRequiredFieldDestino = !this.dadosTransferencia.destino
         ? "required-field-block"
         : "";
@@ -174,12 +174,12 @@ export default {
 
       if (this.dadosTransferencia.destino && this.dadosTransferencia.valor) {
         this.controlModalPix();
-        this.parseDadosTransferencia();
+        this.parseDataTransfer();
 
         axios.post(endpoints.TRANSACOES, this.dadosTransferenciaPost);
       }
     },
-    parseDadosTransferencia() {
+    parseDataTransfer() {
       const date = new Date();
       const day = this.noSingleNumber(date.getDate());
       const month = this.noSingleNumber(date.getMonth() + 1);

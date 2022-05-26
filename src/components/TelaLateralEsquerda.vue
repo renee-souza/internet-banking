@@ -68,16 +68,16 @@ export default {
     };
   },
   mounted() {
-    this.getDadosUsuario();
-    this.getTransacoes();
+    this.getDataUser();
+    this.getTransactions();
   },
   methods: {
-    getDadosUsuario() {
+    getDataUser() {
       axios.get(endpoints.DADOS_USUARIO).then((response) => {
         this.dadosUsuario = response.data;
       });
     },
-    getTransacoes() {
+    getTransactions() {
       axios.get(endpoints.TRANSACOES).then((response) => {
         this.transacoes = response.data;
       });
