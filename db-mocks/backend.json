@@ -3,7 +3,7 @@
     {
       "id": 1,
       "proponente": "Amazon Web Services",
-      "data": "01.01.2001",
+      "data": "21.01.2001",
       "hora": "13:01:01",
       "valor": "1.000,00",
       "tipo": "recebida"
@@ -69,6 +69,14 @@
       "proponente": "Compras mensais",
       "data": "09.09.2009",
       "hora": "21:09:09",
+      "valor": "9.000,00",
+      "tipo": "enviada"
+    },
+    {
+      "id": 10,
+      "proponente": "Compras mensais",
+      "data": "09.09.2009",
+      "hora": "21:09:08",
       "valor": "9.000,00",
       "tipo": "enviada"
     }

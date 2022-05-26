@@ -14,28 +14,52 @@
         <div class="dropdown-content" :class="isOpen">
           <span class="dropdown-content-title">Escolha uma ordenação</span>
 
-          <div class="option-radio" @click="closeOptionsOrdenation()">
+          <div
+            class="option-radio"
+            @click="
+              closeOptionsOrdenation();
+              ordenarResultados('decrec', 'data', 'hora');
+            "
+          >
             <input name="ordenacao" type="radio" id="ocorrencia_desc" />
             <label class="label-check" for="ocorrencia_desc">
               Ordenar por ocorrência (decrescente)
             </label>
           </div>
 
-          <div class="option-radio" @click="closeOptionsOrdenation()">
+          <div
+            class="option-radio"
+            @click="
+              closeOptionsOrdenation();
+              ordenarResultados('cresc', 'data', 'hora');
+            "
+          >
             <input name="ordenacao" type="radio" id="ocorrencia_cres" />
             <label class="label-check" for="ocorrencia_cres">
               Ordenar por ocorrência (crescente)
             </label>
           </div>
 
-          <div class="option-radio" @click="closeOptionsOrdenation()">
+          <div
+            class="option-radio"
+            @click="
+              closeOptionsOrdenation();
+              ordenarResultados('decrec', 'valor');
+            "
+          >
             <input name="ordenacao" type="radio" id="valor_desc" />
             <label class="label-check" for="valor_desc">
               Ordenar por valor (decrescente)
             </label>
           </div>
 
-          <div class="option-radio" @click="closeOptionsOrdenation()">
+          <div
+            class="option-radio"
+            @click="
+              closeOptionsOrdenation();
+              ordenarResultados('cresc', 'valor');
+            "
+          >
             <input name="ordenacao" type="radio" id="valor_cres" />
             <label class="label-check" for="valor_cres">
               Ordenar por valor (crescente)
@@ -84,6 +108,7 @@ export default {
     return {
       isOpen: "",
       transacoes: [],
+      tipoOrdenacao: "",
     };
   },
   mounted() {
@@ -100,6 +125,27 @@ export default {
       axios.get(endpoints.TRANSACOES).then((response) => {
         this.transacoes = response.data;
       });
+    },
+    ordenarResultados(sentido, ordenacao1, ordenacao2) {
+      function compare(a, b) {
+        if (
+          a[(ordenacao1, ordenacao2 ? ordenacao2 : "")] <
+          b[(ordenacao1, ordenacao2 ? ordenacao2 : "")]
+        )
+          return -1;
+        if (
+          a[(ordenacao1, ordenacao2 ? ordenacao2 : "")] >
+          b[(ordenacao1, ordenacao2 ? ordenacao2 : "")]
+        )
+          return 1;
+        return 0;
+      }
+
+      if (sentido === "decrec") {
+        return this.transacoes.sort(compare).reverse();
+      }
+
+      return this.transacoes.sort(compare);
     },
   },
 };
