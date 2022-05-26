@@ -44,7 +44,7 @@
       <div class="menu-user-configs">
         <ul class="menu-nav">
           <li class="item-menu">
-            <RouterLink to="/transferencias">
+            <RouterLink to="">
               <img src="@/assets/images/menu/menu-user-icone-1.svg" />
             </RouterLink>
           </li>

@@ -181,11 +181,7 @@ export default {
         this.controlModalPix();
         this.parseDadosTransferencia();
 
-        axios
-          .post(endpoints.TRANSACOES, this.dadosTransferenciaPost)
-          .then((response) => {
-            console.log(response);
-          });
+        axios.post(endpoints.TRANSACOES, this.dadosTransferenciaPost);
       }
     },
     parseDadosTransferencia() {

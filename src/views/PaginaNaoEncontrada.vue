@@ -1,6 +1,6 @@
 <template>
   <div class="pagina-nao-encontrada">
-    <h1>Página não encontrada</h1>
+    <h1 class="title">Página não encontrada</h1>
 
     <div>
       <p>A página solicitada não pôde ser encontrada.</p>
@@ -28,11 +28,18 @@ export default {
 
 <style lang="sass" scoped>
 .pagina-nao-encontrada
-  margin: auto
-  margin-top: 5rem
+  background-color: var(--bg-content)
+  color: var(--font-primary-color)
+  font-weight: 500
+  height: var(--height)
+  padding: 112px 32px
+  width: 100%
+
+.title
+  font-weight: 600
+  margin-bottom: 24px
 
 .erro
-  font-family: "Roboto", sans-serif
-  font-size: 1.5rem
-  margin-top: 5rem
+  font-size: 20px
+  margin-top: 112px
 </style>

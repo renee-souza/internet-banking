@@ -71,14 +71,6 @@
       "hora": "21:09:09",
       "valor": "9.000,00",
       "tipo": "enviada"
-    },
-    {
-      "id": 10,
-      "proponente": "Hospedagem de domínio",
-      "data": "10.10.2010",
-      "hora": "22:10:10",
-      "valor": "10.000,00",
-      "tipo": "enviada"
     }
   ],
   "categorias": [
