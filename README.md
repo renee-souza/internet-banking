@@ -27,15 +27,15 @@ npm run lint
 
 ### Observações:
 
-- Projeto realizado com `Vuejs v3.2.36`.
+- Projeto realizado com `Vuejs` [v3.2.36](https://www.npmjs.com/package/vue/v/3.2.36).
 
-- Para estilo foi usado `SASS v1.52.1`.
+- Para estilo foi usado `SASS` [v1.52.1](https://www.npmjs.com/package/sass/v/1.52.1).
 
-- A mudança entre telas ocorre com `vue-router v4.0.15`.
+- A mudança entre telas ocorre com `vue-router` [v4.0.15](https://www.npmjs.com/package/vue-router/v/4.0.15).
 
-- O consumo dos endpoints foi realizado com [axios](https://www.npmjs.com/package/axios).
+- O consumo dos endpoints foi realizado com `axios` [v0.24.0](https://www.npmjs.com/package/axios/v/0.24.0).
 
-- Para o mock de API foi utilizado o [json-server](https://www.npmjs.com/package/json-server).
+- Para o mock de API foi utilizado o `json-server` [v0.17.0](https://www.npmjs.com/package/json-server/v/0.17.0).
 
 - Ao executar o comando `npm run api` os seguintes endpoints podem ser acessados:
 
