@@ -47,15 +47,15 @@
     <form class="modal-pix-form">
       <div class="modal-pix-form-field">
         <div>
-          <label class="modal-pix-form-label" for="idEnviarPara"
+          <label class="modal-pix-form-label" for="id_send_to"
             >Enviar para</label
           >
         </div>
 
         <select
-          v-model="dadosTransferencia.destino"
+          v-model="dataTransfer.destination"
           class="modal-pix-form-input"
-          id="idEnviarPara"
+          id="id_send_to"
         >
           <option
             disabled
@@ -75,28 +75,28 @@
             Parcela de emprestimo
           </option>
         </select>
-        <span class="required-field" :class="controlRequiredFieldDestino">
+        <span class="required-field" :class="controlRequiredFieldDestination">
           Campo de preenchimento obrigatório
         </span>
       </div>
 
       <div class="modal-pix-form-field">
         <div>
-          <label class="modal-pix-form-label" for="idValorTransferir"
+          <label class="modal-pix-form-label" for="id_value_transfer"
             >Valor a transferir</label
           >
         </div>
         <input
-          v-model="dadosTransferencia.valor"
+          v-model="dataTransfer.value"
           type="number"
           min="0"
           oninput="this.value = Math.abs(this.value)"
           class="modal-pix-form-input modal-pix-form-input-value"
-          id="idValorTransferir"
+          id="id_value_transfer"
           placeholder="R$ 0,00"
           autocomplete="off"
         />
-        <span class="required-field" :class="controlRequiredFieldValor">
+        <span class="required-field" :class="controlRequiredFieldValue">
           Campo de preenchimento obrigatório
         </span>
       </div>
@@ -131,15 +131,15 @@ export default {
   data() {
     return {
       showModalPix: "",
-      transferenciaOpacity: "",
-      controlRequiredFieldDestino: "",
-      controlRequiredFieldValor: "",
+      transferOpacity: "",
+      controlRequiredFieldDestination: "",
+      controlRequiredFieldValue: "",
 
-      dadosTransferenciaPost: {},
+      dataTransferPost: {},
 
-      dadosTransferencia: {
-        destino: "",
-        valor: "",
+      dataTransfer: {
+        destination: "",
+        value: "",
       },
     };
   },
@@ -149,34 +149,34 @@ export default {
   methods: {
     controlModalPix() {
       this.showModalPix = this.showModalPix === "" ? "show-modal-pix" : "";
-      this.transferenciaOpacity =
-        this.transferenciaOpacity === "" ? "transferencias-opacity" : "";
+      this.transferOpacity =
+        this.transferOpacity === "" ? "transferencias-opacity" : "";
 
-      this.controlRequiredFieldDestino = "";
-      this.controlRequiredFieldValor = "";
+      this.controlRequiredFieldDestination = "";
+      this.controlRequiredFieldValue = "";
     },
     noSingleNumber(number) {
       number = number.toString().length == 1 ? `0${number}` : number;
       return number;
     },
     postDataTransfer() {
-      this.controlRequiredFieldDestino = !this.dadosTransferencia.destino
+      this.controlRequiredFieldDestination = !this.dataTransfer.destination
         ? "required-field-block"
         : "";
 
-      this.controlRequiredFieldValor = !this.dadosTransferencia.valor
+      this.controlRequiredFieldValue = !this.dataTransfer.value
         ? "required-field-block"
         : "";
 
-      if (!this.dadosTransferencia.destino || !this.dadosTransferencia.valor) {
+      if (!this.dataTransfer.destination || !this.dataTransfer.value) {
         return;
       }
 
-      if (this.dadosTransferencia.destino && this.dadosTransferencia.valor) {
+      if (this.dataTransfer.destination && this.dataTransfer.value) {
         this.controlModalPix();
         this.parseDataTransfer();
 
-        axios.post(endpoints.TRANSACOES, this.dadosTransferenciaPost);
+        axios.post(endpoints.TRANSACTIONS, this.dataTransferPost);
       }
     },
     parseDataTransfer() {
@@ -188,22 +188,22 @@ export default {
       const minutes = this.noSingleNumber(date.getMinutes());
       const seconds = this.noSingleNumber(date.getSeconds());
 
-      this.dadosTransferencia.valor = new Intl.NumberFormat("pt-BR", {
+      this.dataTransfer.value = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BLR",
       })
-        .format(this.dadosTransferencia.valor)
+        .format(this.dataTransfer.value)
         .replace("BLR", "")
         .replace(" ", "");
 
       const today = `${day}.${month}.${year}`;
       const hour = `${hours}:${minutes}:${seconds}`;
 
-      this.dadosTransferenciaPost = {
-        proponente: this.dadosTransferencia.destino,
+      this.dataTransferPost = {
+        proponente: this.dataTransfer.destination,
         data: today,
         hora: hour,
-        valor: this.dadosTransferencia.valor,
+        valor: this.dataTransfer.value,
         tipo: "enviada",
       };
     },

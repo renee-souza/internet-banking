@@ -5,14 +5,14 @@
         <img src="@/assets/images/avatar.svg" />
       </span>
 
-      <div v-if="dadosUsuario.empresa" class="user-name">
-        {{ dadosUsuario.empresa }}
+      <div v-if="userData.empresa" class="user-name">
+        {{ userData.empresa }}
       </div>
-      <div v-if="dadosUsuario.cnpj" class="user-cnpj">
-        {{ dadosUsuario.cnpj }}
+      <div v-if="userData.cnpj" class="user-cnpj">
+        {{ userData.cnpj }}
       </div>
 
-      <span class="user-name" v-if="transacoes.length === 0"
+      <span class="user-name" v-if="transactions.length === 0"
         >Aguardando dados...</span
       >
 
@@ -28,14 +28,14 @@
       <h3 class="lastest-transactions-title">Últimas transações</h3>
       <div class="division"></div>
 
-      <span class="awaiting-data" v-if="transacoes.length === 0">
+      <span class="awaiting-data" v-if="transactions.length === 0">
         Aguardando dados...
       </span>
 
       <div class="lastest-transactions-for">
         <div
           class="lastest-transactions-list"
-          v-for="(transacao, index) in transacoes"
+          v-for="(transacao, index) in transactions"
           :key="index"
         >
           <div class="transactions">
@@ -63,8 +63,8 @@ export default {
   components: {},
   data() {
     return {
-      dadosUsuario: [],
-      transacoes: [],
+      userData: [],
+      transactions: [],
     };
   },
   mounted() {
@@ -73,13 +73,13 @@ export default {
   },
   methods: {
     getDataUser() {
-      axios.get(endpoints.DADOS_USUARIO).then((response) => {
-        this.dadosUsuario = response.data;
+      axios.get(endpoints.USER_DATA).then((response) => {
+        this.userData = response.data;
       });
     },
     getTransactions() {
-      axios.get(endpoints.TRANSACOES).then((response) => {
-        this.transacoes = response.data;
+      axios.get(endpoints.TRANSACTIONS).then((response) => {
+        this.transactions = response.data;
       });
     },
   },

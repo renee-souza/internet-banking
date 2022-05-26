@@ -7,7 +7,7 @@
         <button @click="openMenuOrdenation()" class="btn-ordenation">
           <img class="order-list" src="@/assets/images/ordem-lista.svg" />
           Ordenado por:
-          <span class="btn-ordenation-text-green">{{ ordenadoPor }}</span>
+          <span class="btn-ordenation-text-green">{{ sortedBy }}</span>
           <img class="arrow" src="@/assets/images/arrow-down.svg" />
         </button>
 
@@ -21,8 +21,8 @@
               sortResultsOccurrence('decrec', 'data', 'hora');
             "
           >
-            <input name="ordenacao" type="radio" id="ocorrencia_desc" />
-            <label class="label-check" for="ocorrencia_desc">
+            <input name="sort" type="radio" id="occurrence_desc" />
+            <label class="label-check" for="occurrence_desc">
               Ordenar por ocorrência (decrescente)
             </label>
           </div>
@@ -34,8 +34,8 @@
               sortResultsOccurrence('cresc', 'data', 'hora');
             "
           >
-            <input name="ordenacao" type="radio" id="ocorrencia_cres" />
-            <label class="label-check" for="ocorrencia_cres">
+            <input name="sort" type="radio" id="occurrence_cres" />
+            <label class="label-check" for="occurrence_cres">
               Ordenar por ocorrência (crescente)
             </label>
           </div>
@@ -47,8 +47,8 @@
               sortResultsValue('decrec', 'valor');
             "
           >
-            <input name="ordenacao" type="radio" id="valor_desc" />
-            <label class="label-check" for="valor_desc">
+            <input name="sort" type="radio" id="value_desc" />
+            <label class="label-check" for="value_desc">
               Ordenar por valor (decrescente)
             </label>
           </div>
@@ -60,8 +60,8 @@
               sortResultsValue('cresc', 'valor');
             "
           >
-            <input name="ordenacao" type="radio" id="valor_cres" />
-            <label class="label-check" for="valor_cres">
+            <input name="sort" type="radio" id="value_cres" />
+            <label class="label-check" for="value_cres">
               Ordenar por valor (crescente)
             </label>
           </div>
@@ -80,11 +80,11 @@
           </tr>
         </thead>
 
-        <span class="awaiting-data" v-if="transacoes.length === 0">
+        <span class="awaiting-data" v-if="transactions.length === 0">
           Aguardando dados...
         </span>
 
-        <tbody v-for="(transacao, index) in transacoes" :key="index">
+        <tbody v-for="(transacao, index) in transactions" :key="index">
           <tr>
             <td>
               <img
@@ -111,9 +111,8 @@ export default {
   data() {
     return {
       isOpen: "",
-      transacoes: [],
-      tipoOrdenacao: "",
-      ordenadoPor: "Ocorrência (decrescente)",
+      transactions: [],
+      sortedBy: "Ocorrência (decrescente)",
     };
   },
   mounted() {
@@ -123,14 +122,14 @@ export default {
     openMenuOrdenation() {
       this.isOpen = this.isOpen === "" ? "is-open" : "";
     },
-    closeOptionsOrdenation(setOrdenation) {
-      this.ordenadoPor = setOrdenation;
+    closeOptionsOrdenation(setSort) {
+      this.sortedBy = setSort;
 
       setTimeout(() => (this.isOpen = ""), 300);
     },
     getTransactions() {
-      axios.get(endpoints.TRANSACOES).then((response) => {
-        this.transacoes = response.data;
+      axios.get(endpoints.TRANSACTIONS).then((response) => {
+        this.transactions = response.data;
       });
     },
     sortResultsOccurrence(sense, firstOrdination, secondOrdination) {
@@ -149,23 +148,23 @@ export default {
       }
 
       if (sense === "decrec") {
-        return this.transacoes.sort(compare).reverse();
+        return this.transactions.sort(compare).reverse();
       }
 
-      return this.transacoes.sort(compare);
+      return this.transactions.sort(compare);
     },
-    sortResultsValue(sense, ordenacao) {
+    sortResultsValue(sense, sort) {
       function compare(a, b) {
-        if (a[ordenacao] < b[ordenacao]) return -1;
-        if (a[ordenacao] > b[ordenacao]) return 1;
+        if (a[sort] < b[sort]) return -1;
+        if (a[sort] > b[sort]) return 1;
         return 0;
       }
 
       if (sense === "decrec") {
-        return this.transacoes.sort(compare).reverse();
+        return this.transactions.sort(compare).reverse();
       }
 
-      return this.transacoes.sort(compare);
+      return this.transactions.sort(compare);
     },
   },
 };

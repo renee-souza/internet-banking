@@ -1,15 +1,15 @@
 <template>
   <div class="card-balance">
-    <span v-if="valor" class="header">{{ label }}</span>
-    <span v-if="valor" class="value">R$ {{ valor }}</span>
-    <span v-if="!valor" class="value">Aguardando dados...</span>
+    <span v-if="value" class="header">{{ label }}</span>
+    <span v-if="value" class="value">R$ {{ value }}</span>
+    <span v-if="!value" class="value">Carregando dados...</span>
   </div>
 </template>
 
 <script>
 export default {
   name: "CardSaldo",
-  props: ["label", "valor"],
+  props: ["label", "value"],
   components: {},
   data() {
     return {};

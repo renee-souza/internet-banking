@@ -1,10 +1,8 @@
 <template>
   <div class="home">
     <div class="header">
-      <h1 v-if="dadosUsuario.nome" class="hello">
-        Olá, {{ dadosUsuario.nome }}! 😊
-      </h1>
-      <h1 v-if="!dadosUsuario.nome" class="hello">Olá! 😊</h1>
+      <h1 v-if="userData.nome" class="hello">Olá, {{ userData.nome }}! 😊</h1>
+      <h1 v-if="!userData.nome" class="hello">Olá! 😊</h1>
       <label class="search-label">
         <input
           class="search-input"
@@ -15,27 +13,27 @@
     </div>
 
     <div class="cards">
-      <div id="balance-cards" class="balance-cards">
+      <div class="balance-cards">
         <CardSaldo
-          :label="valoresPrincipais[0]?.saldo.label"
-          :valor="valoresPrincipais[0]?.saldo.value"
+          :label="mainValues[0]?.saldo.label"
+          :value="mainValues[0]?.saldo.value"
         />
         <CardSaldo
-          :label="valoresPrincipais[1]?.fatura.label"
-          :valor="valoresPrincipais[1]?.fatura.value"
+          :label="mainValues[1]?.fatura.label"
+          :value="mainValues[1]?.fatura.value"
         />
       </div>
       <h3 class="title-spent">Gastos por categoria</h3>
 
-      <div id="cards-spent" class="cards-spent">
-        <span v-if="categorias.length === 0">Aguardando dados...</span>
-        <div v-for="(categoria, index) in categorias" :key="index">
+      <div class="cards-spent">
+        <span v-if="categories.length === 0">Aguardando dados...</span>
+        <div v-for="(categoria, index) in categories" :key="index">
           <CardGasto
-            :categoria="categoria.categoria"
-            :valor="categoria.valor"
-            :limite="categoria.limite"
-            :porcentagem="categoria.porcentagem"
-            :limite_color="categoria.limite_color"
+            :category="categoria.categoria"
+            :value="categoria.valor"
+            :limit="categoria.limite"
+            :percentage="categoria.porcentagem"
+            :limit_color="categoria.limite_color"
           />
         </div>
       </div>
@@ -55,9 +53,9 @@ export default {
   components: { CardSaldo, CardGasto },
   data() {
     return {
-      dadosUsuario: [],
-      valoresPrincipais: [],
-      categorias: [],
+      userData: [],
+      mainValues: [],
+      categories: [],
     };
   },
   mounted() {
@@ -80,18 +78,18 @@ export default {
   },
   methods: {
     getDataUser() {
-      axios.get(endpoints.DADOS_USUARIO).then((response) => {
-        this.dadosUsuario = response.data;
+      axios.get(endpoints.USER_DATA).then((response) => {
+        this.userData = response.data;
       });
     },
     getMainValues() {
-      axios.get(endpoints.VALORES_PRINCIPAIS).then((response) => {
-        this.valoresPrincipais = response.data;
+      axios.get(endpoints.MAIN_VALUES).then((response) => {
+        this.mainValues = response.data;
       });
     },
     getCategories() {
-      axios.get(endpoints.CATEGORIAS).then((response) => {
-        this.categorias = response.data;
+      axios.get(endpoints.CATEGORIES).then((response) => {
+        this.categories = response.data;
       });
     },
   },
@@ -121,6 +119,7 @@ export default {
 .hello
   font-size: 24px
   font-weight: 600
+  margin-right: 32px
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap

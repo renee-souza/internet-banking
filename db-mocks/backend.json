@@ -79,6 +79,30 @@
       "hora": "21:09:08",
       "valor": "9.000,00",
       "tipo": "enviada"
+    },
+    {
+      "proponente": "Aluguel de imóvel",
+      "data": "26.05.2022",
+      "hora": "13:36:33",
+      "valor": "11,00",
+      "tipo": "enviada",
+      "id": 11
+    },
+    {
+      "proponente": "Aluguel de imóvel",
+      "data": "26.05.2022",
+      "hora": "13:37:30",
+      "valor": "22,00",
+      "tipo": "enviada",
+      "id": 12
+    },
+    {
+      "proponente": "Aluguel de imóvel",
+      "data": "26.05.2022",
+      "hora": "13:37:54",
+      "valor": "33,00",
+      "tipo": "enviada",
+      "id": 13
     }
   ],
   "categorias": [

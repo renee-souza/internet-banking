@@ -2,13 +2,13 @@
   <div class="card-spent">
     <span class="title">
       <img src="@/assets/images/card-gasto/card-gasto-icon-1.svg" />
-      {{ categoria }}
+      {{ category }}
     </span>
-    <span class="value">R$ {{ valor }}</span>
+    <span class="value">R$ {{ value }}</span>
     <span class="limit">
       Limite:
-      <span :style="{ color: limite_color }"
-        >R$ {{ limite }} {{ porcentagem }}</span
+      <span :style="{ color: limit_color }"
+        >R$ {{ limit }} {{ percentage }}</span
       >
     </span>
   </div>
@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "CardGasto",
-  props: ["categoria", "valor", "limite", "porcentagem", "limite_color"],
+  props: ["category", "value", "limit", "percentage", "limit_color"],
   components: {},
   data() {
     return {};

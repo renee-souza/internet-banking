@@ -1,5 +1,5 @@
 <template>
-  <div class="transfers" :class="transferenciaOpacity">
+  <div class="transfers" :class="transferOpacity">
     <div class="header">
       <div class="title">
         <img src="@/assets/images/menu/menu-icone-3.svg" />
@@ -29,14 +29,14 @@ export default {
   data() {
     return {
       showModalPix: "",
-      transferenciaOpacity: "",
+      transferOpacity: "",
     };
   },
   methods: {
     openModalPix() {
       this.showModalPix = this.showModalPix === "" ? "show-modal-pix" : "";
-      this.transferenciaOpacity =
-        this.transferenciaOpacity === "" ? "transfers-opacity" : "";
+      this.transferOpacity =
+        this.transferOpacity === "" ? "transfers-opacity" : "";
     },
   },
 };

@@ -26,7 +26,7 @@
 
         <li
           class="item-menu item-menu-enabled"
-          :class="rotas.transferencias"
+          :class="rotas.transfers"
           @click="changeSelected()"
         >
           <RouterLink to="transferencias">
@@ -82,7 +82,7 @@ export default {
 
       rotas: {
         home: "",
-        transferencias: "",
+        transfers: "",
       },
     };
   },
@@ -97,12 +97,12 @@ export default {
 
       if (this.rotaAtual === "/") {
         this.rotas.home = "item-menu-selected";
-        this.rotas.transferencias = "";
+        this.rotas.transfers = "";
       }
 
       if (this.rotaAtual === "/transferencias") {
         this.rotas.home = "";
-        this.rotas.transferencias = "item-menu-selected";
+        this.rotas.transfers = "item-menu-selected";
       }
     },
   },
