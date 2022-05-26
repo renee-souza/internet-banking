@@ -1,8 +1,8 @@
 <template>
-  <div class="card-saldo">
+  <div class="card-balance">
     <span v-if="valor" class="header">{{ label }}</span>
-    <span v-if="valor" class="valor">R$ {{ valor }}</span>
-    <span v-if="!valor" class="valor">Aguardando dados...</span>
+    <span v-if="valor" class="value">R$ {{ valor }}</span>
+    <span v-if="!valor" class="value">Aguardando dados...</span>
   </div>
 </template>
 
@@ -18,20 +18,20 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.card-saldo
+.card-balance
   background-color: var(--bg-cards)
   color: var(--font-primary-color)
   padding: 24px
   margin: 32px 32px 24px 0
 
 .header,
-.valor
+.value
   display: block
 
 .header
   font-size: 18px
 
-.valor
+.value
   align-items: center
   display: flex
   font-size: 32px

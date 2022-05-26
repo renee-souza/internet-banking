@@ -1,38 +1,33 @@
 <template>
-  <div class="formas-transferir">
-    <span class="formas-transferir-text">
-      Escolha uma forma para transferir
-    </span>
+  <div class="forms-transfer">
+    <span class="forms-transfer-text"> Escolha uma forma para transferir </span>
 
-    <div class="formas-transferir-icones">
-      <button
-        @click="controlModalPix()"
-        class="formas-transferir-forma-container"
-      >
-        <span class="forma-icone">
+    <div class="forms-transfer-icons">
+      <button @click="controlModalPix()" class="forms-transfer-form-container">
+        <span class="form-icon">
           <img
             src="@/assets/images/formas-transferir/formas-transferir-1.svg"
           />
         </span>
-        <span class="forma-texto">pix</span>
+        <span class="form-text">pix</span>
       </button>
 
-      <button class="formas-transferir-forma-container">
-        <span class="forma-icone">
+      <button class="forms-transfer-form-container">
+        <span class="form-icon">
           <img
             src="@/assets/images/formas-transferir/formas-transferir-2.svg"
           />
         </span>
-        <span class="forma-texto">ted</span>
+        <span class="form-text">ted</span>
       </button>
 
-      <button class="formas-transferir-forma-container">
-        <span class="forma-icone">
+      <button class="forms-transfer-form-container">
+        <span class="form-icon">
           <img
             src="@/assets/images/formas-transferir/formas-transferir-3.svg"
           />
         </span>
-        <span class="forma-texto">doc</span>
+        <span class="form-text">doc</span>
       </button>
     </div>
   </div>
@@ -80,7 +75,7 @@
             Parcela de emprestimo
           </option>
         </select>
-        <span class="campo-obrigatorio" :class="controlRequiredFieldDestino">
+        <span class="required-field" :class="controlRequiredFieldDestino">
           Campo de preenchimento obrigatório
         </span>
       </div>
@@ -101,7 +96,7 @@
           placeholder="R$ 0,00"
           autocomplete="off"
         />
-        <span class="campo-obrigatorio" :class="controlRequiredFieldValor">
+        <span class="required-field" :class="controlRequiredFieldValor">
           Campo de preenchimento obrigatório
         </span>
       </div>
@@ -120,7 +115,7 @@
         type="submit"
         class="modal-pix-footer-btn modal-pix-footer-btn-transferir"
       >
-        <span class="modal-pix-footer-btn-transferir-text">Transferir</span>
+        <span class="modal-pix-footer-btn-transfer-text">Transferir</span>
       </button>
     </div>
   </div>
@@ -166,11 +161,11 @@ export default {
     },
     postDadosTransferencia() {
       this.controlRequiredFieldDestino = !this.dadosTransferencia.destino
-        ? "campo-obrigatorio-block"
+        ? "required-field-block"
         : "";
 
       this.controlRequiredFieldValor = !this.dadosTransferencia.valor
-        ? "campo-obrigatorio-block"
+        ? "required-field-block"
         : "";
 
       if (!this.dadosTransferencia.destino || !this.dadosTransferencia.valor) {
@@ -217,16 +212,16 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.campo-obrigatorio
+.required-field
   color: var(--font-limit-red)
   display: none
   font-size: 12px
   font-weight: 500
 
-.campo-obrigatorio-block
+.required-field-block
   display: block
 
-.formas-transferir
+.forms-transfer
   align-items: center
   background-color: var(--bg-cards)
   display: flex
@@ -235,16 +230,16 @@ export default {
   margin: 32px 32px 0
   padding: 8px 8px 8px 0
 
-.formas-transferir-text
+.forms-transfer-text
   font-size: 14px
   margin-left: 16px
 
-.formas-transferir-icones
+.forms-transfer-icons
   align-items: center
   display: flex
   gap: 10px
 
-.formas-transferir-forma-container
+.forms-transfer-form-container
   align-items: center
   background-color: var(--bg-primary-components)
   border: none
@@ -257,16 +252,16 @@ export default {
   line-height: 1.5
   width: 75px
 
-.forma-icone
+.form-icon
   margin-top: 5px
 
-.forma-icone > img
+.form-icon > img
   height: 20px
   margin-right: 8px
   padding: 0
   width: 20px
 
-.forma-texto
+.form-text
   font-size: 14px
   text-transform: uppercase
 
@@ -373,7 +368,7 @@ input::-webkit-inner-spin-button
   height: 48px
   width: 124px
 
-.modal-pix-footer-btn-transferir-text
+.modal-pix-footer-btn-transfer-text
   color: var(--font-primary-color)
   font-size: 14px
   font-weight: 500

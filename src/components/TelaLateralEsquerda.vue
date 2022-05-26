@@ -1,22 +1,22 @@
 <template>
-  <div class="tela-lateral-esquerda">
+  <div class="left-side-screen">
     <div class="header">
-      <span class="avatar-conta">
+      <span class="avatar-account">
         <img src="@/assets/images/avatar.svg" />
       </span>
 
-      <div v-if="dadosUsuario.empresa" class="nome-usuario">
+      <div v-if="dadosUsuario.empresa" class="user-name">
         {{ dadosUsuario.empresa }}
       </div>
-      <div v-if="dadosUsuario.cnpj" class="cnpj-usuario">
+      <div v-if="dadosUsuario.cnpj" class="user-cnpj">
         {{ dadosUsuario.cnpj }}
       </div>
 
-      <span class="nome-usuario" v-if="transacoes.length === 0"
+      <span class="user-name" v-if="transacoes.length === 0"
         >Aguardando dados...</span
       >
 
-      <div class="tipos-transacoes">
+      <div class="types-transactions">
         <img src="@/assets/images/transacoes-icons/transacoes-icons-1.svg" />
         <img src="@/assets/images/transacoes-icons/transacoes-icons-2.svg" />
         <img src="@/assets/images/transacoes-icons/transacoes-icons-3.svg" />
@@ -24,29 +24,29 @@
       </div>
     </div>
 
-    <div class="ultimas-transacoes">
-      <h3 class="ultimas-transacoes-title">Últimas transações</h3>
-      <div class="divisao"></div>
+    <div class="lastest-transactions">
+      <h3 class="lastest-transactions-title">Últimas transações</h3>
+      <div class="division"></div>
 
-      <span class="aguardando-dados" v-if="transacoes.length === 0">
+      <span class="awaiting-data" v-if="transacoes.length === 0">
         Aguardando dados...
       </span>
 
-      <div class="ultimas-transacoes-for">
+      <div class="lastest-transactions-for">
         <div
-          class="ultimas-transacoes-list"
+          class="lastest-transactions-list"
           v-for="(transacao, index) in transacoes"
           :key="index"
         >
-          <div class="transacao">
+          <div class="transactions">
             <img
               src="@/assets/images/transacoes-icons/transacoes-icons-1.svg"
             />
-            <div class="transacao-descricao">
-              <div class="nome">{{ transacao.proponente }}</div>
-              <div class="acao">Transferência {{ transacao.tipo }}</div>
+            <div class="transaction-description">
+              <div class="name">{{ transacao.proponente }}</div>
+              <div class="action">Transferência {{ transacao.tipo }}</div>
             </div>
-            <span class="valor">R$ {{ transacao.valor }}</span>
+            <span class="value">R$ {{ transacao.valor }}</span>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.tela-lateral-esquerda
+.left-side-screen
   background-color: var(--bg-primary-components)
   color: var(--font-primary-color)
   max-height: var(--height)
@@ -98,75 +98,75 @@ export default {
 .header
   padding: 24px 32px 24px
 
-.avatar-conta > img
+.avatar-account > img
   margin-botton: 24px
 
-.nome-usuario
+.user-name
   font-size: 18px
   margin-bottom: 4px
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
 
-.cnpj-usuario
+.user-cnpj
   color: var(--font-secondary-color)
   font-size: 12px
 
-.tipos-transacoes
+.types-transactions
   display: flex
   justify-content: space-between
   margin-top: 16px
   padding: 16px 0 4px
 
-.ultimas-transacoes-title
+.lastest-transactions-title
   font-size: 14px
   font-weight: 500
   margin: 0 24px 12px
   text-align: left
 
-.divisao
+.division
   border-top: 1px solid var(--bg-cards)
   margin: 0 auto
   width: 292px
 
-.aguardando-dados
+.awaiting-data
   display: block
   margin-top: 24px
 
-.ultimas-transacoes-list
+.lastest-transactions-list
   padding: 6px 16px
 
-.ultimas-transacoes-for
+.lastest-transactions-for
   height: 418px
   overflow-x: hidden
   overflow-y: scroll
   scrollbar-width: none
 
-.ultimas-transacoes-for::-webkit-scrollbar
+.lastest-transactions-for::-webkit-scrollbar
   display: none
 
-.transacao
+.transactions
   align-items: center
   display: flex
   justify-content: center
 
-.transacao-descricao
+.transaction-description
   font-size: 11px
   margin: 6px 10px
   width: 124px
 
-.nome
+.name
   font-weight: 13px
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
 
-.acao
+.action
   color: var(--font-secondary-color)
   overflow: hidden
   text-overflow: clip
   white-space: nowrap
 
-.valor
+.value
   font-size: 12px
 </style>

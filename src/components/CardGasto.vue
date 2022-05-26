@@ -1,11 +1,11 @@
 <template>
-  <div class="card-gasto">
+  <div class="card-spent">
     <span class="title">
       <img src="@/assets/images/card-gasto/card-gasto-icon-1.svg" />
       {{ categoria }}
     </span>
-    <span class="valor">R$ {{ valor }}</span>
-    <span class="limite">
+    <span class="value">R$ {{ valor }}</span>
+    <span class="limit">
       Limite:
       <span :style="{ color: limite_color }"
         >R$ {{ limite }} {{ porcentagem }}</span
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.card-gasto
+.card-spent
   background-color: var(--bg-cards)
   color: var(--font-primary-color)
   min-height: 179px
@@ -35,8 +35,8 @@ export default {
   padding: 32px 0
 
 .title,
-.valor,
-.limite
+.value,
+.limit
   display: block
   text-align: center
 
@@ -47,15 +47,15 @@ export default {
 img
   height: 14px
 
-.valor
+.value
   font-size: 28px
   margin: 24px 0
 
-.limite
+.limit
   font-size: 12px
   font-weight: 500
   margin-bottom: 32px
 
-.limite-valor
+.limit-value
   color: var(--font-limit-green)
 </style>

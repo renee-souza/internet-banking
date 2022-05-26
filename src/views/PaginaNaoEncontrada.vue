@@ -1,5 +1,5 @@
 <template>
-  <div class="pagina-nao-encontrada">
+  <div class="page-not-found">
     <h1 class="title">Página não encontrada</h1>
 
     <div>
@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <div class="erro">
+    <div class="error">
       <p>Erro: 404 not found.</p>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.pagina-nao-encontrada
+.page-not-found
   background-color: var(--bg-content)
   color: var(--font-primary-color)
   font-weight: 500
@@ -39,7 +39,7 @@ export default {
   font-weight: 600
   margin-bottom: 24px
 
-.erro
+.error
   font-size: 20px
   margin-top: 112px
 </style>

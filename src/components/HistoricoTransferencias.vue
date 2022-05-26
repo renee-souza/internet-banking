@@ -1,14 +1,14 @@
 <template>
-  <div class="historico">
-    <div class="historico-header">
-      <h3 class="historico-title">Histórico</h3>
+  <div class="historic">
+    <div class="historic-header">
+      <h3 class="historic-title">Histórico</h3>
 
       <div class="dropdown">
-        <button @click="openMenuOrdenation()" class="btn-ordenacao">
-          <img class="ordem-lista" src="@/assets/images/ordem-lista.svg" />
+        <button @click="openMenuOrdenation()" class="btn-ordenation">
+          <img class="order-list" src="@/assets/images/ordem-lista.svg" />
           Ordenado por:
-          <span class="btn-ordenacao-text-green">Completo</span>
-          <img class="seta" src="@/assets/images/arrow-down.svg" />
+          <span class="btn-ordenation-text-green">Completo</span>
+          <img class="arrow" src="@/assets/images/arrow-down.svg" />
         </button>
 
         <div class="dropdown-content" :class="isOpen">
@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <div class="historico-list">
+    <div class="historic-list">
       <table>
         <thead>
           <tr class="table-header">
@@ -80,7 +80,7 @@
           </tr>
         </thead>
 
-        <span class="aguardando-dados" v-if="transacoes.length === 0">
+        <span class="awaiting-data" v-if="transacoes.length === 0">
           Aguardando dados...
         </span>
 
@@ -156,18 +156,18 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.historico
+.historic
   padding: 32px 32px 0
 
-.historico-header
+.historic-header
   display: flex
   justify-content: space-between
   margin-bottom: 16px
 
-.historico-title
+.historic-title
   font-size: 18px
 
-.btn-ordenacao
+.btn-ordenation
   align-items: center
   background-color: var(--bg-cards)
   border: none
@@ -183,19 +183,19 @@ export default {
   &:focus
     outline: none
 
-.ordem-lista
+.order-list
   padding: 0
   height: 16px
   width: 16px
 
-.btn-ordenacao-text-green
+.btn-ordenation-text-green
   color: var(--font-limit-green)
   margin: 0 8px 0 4px
 
 .open-menu
   display: block
 
-.seta
+.arrow
   padding: 0
   width: 8px
 
@@ -249,13 +249,13 @@ input[type=radio] + label:before
 input[type=radio]:checked + label:before
   border: 5px solid var(--btn-transferir)
 
-.historico-list
+.historic-list
   max-height: 458px
   overflow-x: hidden
   overflow-y: scroll
   scrollbar-width: none
 
-.historico-list::-webkit-scrollbar
+.historic-list::-webkit-scrollbar
   display: none
 
 table
@@ -269,7 +269,7 @@ thead
   background-color: var(--bg-content)
   border-bottom: 3px solid var(--bg-cards)
 
-.aguardando-dados
+.awaiting-data
   display: block
   margin-top: 24px
 

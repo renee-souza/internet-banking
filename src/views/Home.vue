@@ -15,7 +15,7 @@
     </div>
 
     <div class="cards">
-      <div id="cards-saldo" class="cards-saldo">
+      <div id="balance-cards" class="balance-cards">
         <CardSaldo
           :label="valoresPrincipais[0]?.saldo.label"
           :valor="valoresPrincipais[0]?.saldo.value"
@@ -25,9 +25,9 @@
           :valor="valoresPrincipais[1]?.fatura.value"
         />
       </div>
-      <h3 class="title-gasto">Gastos por categoria</h3>
+      <h3 class="title-spent">Gastos por categoria</h3>
 
-      <div id="cards-gasto" class="cards-gasto">
+      <div id="cards-spent" class="cards-spent">
         <span v-if="categorias.length === 0">Aguardando dados...</span>
         <div v-for="(categoria, index) in categorias" :key="index">
           <CardGasto
@@ -65,8 +65,8 @@ export default {
     this.getValoresPrincipais();
     this.getCategorias();
 
-    const scrollContainerGasto = document.querySelector(".cards-gasto");
-    const scrollContainerSaldo = document.querySelector(".cards-saldo");
+    const scrollContainerGasto = document.querySelector(".cards-spent");
+    const scrollContainerSaldo = document.querySelector(".balance-cards");
 
     scrollContainerGasto.addEventListener("wheel", (evt) => {
       evt.preventDefault();
@@ -162,20 +162,20 @@ label
 .cards
   overflow: auto
 
-.cards-saldo
+.balance-cards
   display: flex
   justify-content: flex-start
   overflow: hidden
   padding-left: 32px
 
-.title-gasto
+.title-spent
   margin: 0 32px
   margin-bottom: 20px
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
 
-.cards-gasto
+.cards-spent
   display: flex
   justify-content: flex-start
   overflow: hidden
