@@ -40,8 +40,11 @@ npm run lint
 - Ao executar o comando `npm run api` os seguintes endpoints podem ser acessados:
 
 > http://localhost:3001/transacoes
+
 > http://localhost:3001/categorias
+
 > http://localhost:3001/valores_principais
+
 > http://localhost:3001/dados_usuario
 
 - Gerenciamento de estado não aplicado.
